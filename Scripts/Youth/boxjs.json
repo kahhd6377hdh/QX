@@ -3,7 +3,7 @@
   "name": "soso应用订阅",
   "author": "@soso",
   "icon": "https://avatars0.githubusercontent.com/u/213085100?s=52&v=4",
-  "repo": "https://github.com/kahhd6377hdh/QX/blob/main/Scripts/Youth/youth.js",
+  "repo": "https://github.com/kahhd6377hdh/QX/blob/main/Scripts/Youth",
   "apps": [
     {
       "id": "youth_multiple",
