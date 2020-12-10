@@ -1,0 +1,103 @@
+{
+	"id": "syzzzf.app.sub",
+	"name": "syzzzf应用订阅",
+	"author": "@syzzzf",
+	"icon": "",
+	"repo": "https://github.com/songyangzz/QuantumultX",
+	"apps": [
+		{
+			"id": "sy_youth_read",
+			"name": "中青自动阅读",
+			"keys": ["zqgetbody_body","zqgetbody_body1"],
+			"settings": [
+				{
+					"id": "zqgetbody_body",
+					"name": "请求body",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": false,
+					"rows": 1,
+					"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+				}
+				,
+				{
+					"id": "zqgetbody_body1",
+					"name": "请求body",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": false,
+					"rows": 1,
+					"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+				}
+				,
+				{
+					"id": "zqgetbody_body_index",
+					"name": "上次执行位置",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": false,
+					"rows": 1,
+					"desc": "记录上次执行的位置，可以控制从第几个body开始执行"
+				}
+				,
+				{
+					"id": "zqgetbody_body_index1",
+					"name": "上次执行位置",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": false,
+					"rows": 1,
+					"desc": "记录上次执行的位置，可以控制从第几个body开始执行"
+				}
+			],
+			"author": "@syzzzf",
+			"repo": "https://github.com/songyangzz/QuantumultX/blob/master/YOUTH_READ.js",
+			"icons": [
+				"https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
+				"https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
+			]
+		}，
+		{
+			"id": "youth_multiple",
+			"name": "中青多账号管理",
+			"author": "@soso",
+			"keys": ["cookiesJson"],
+			"settings": [
+				{
+					"id": "notifytimes",
+					"name": "通知频率 (点击查看设置说明)",
+					"val": "",
+					"type": "number",
+					"desc": "设定通知频率，前三次为全部通知，之后转盘次数/设定频率整除时通知，如设置0为无通知，设置1为全部通知，设置其他数可整除余0时通知，默认值50"
+				},
+				{
+					"id": "zqlogs",
+					"name": "调试日志",
+					"val": false,
+					"type": "boolean",
+					"desc": "调试日志开关，默认关闭"
+				},
+				{
+					"id": "currentAccIndex",
+					"name": "当前账号序号",
+					"val": "1",
+					"type": "number",
+					"desc": "需要获取第几个账号的Cookie就填写对应的数字，如第1个账号填写1，第2个账号就填写2，依次类推(默认从1开始)。"
+				},
+				{
+					"id": "cookiesJson",
+					"name": "cookies数据",
+					"val": "",
+					"type": "textarea",
+					"desc": "cookies数据，通过脚本获取（包含了youthheader_zq、read_zq、red_zq、readtime_zq）"
+				}
+			],
+			"repo": "https://raw.githubusercontent.com/liumingIt331/scripts01/master/quantumultX/youth.js",
+			"icons": [
+				"https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
+				"https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
+			],
+			"script": "https://raw.githubusercontent.com/liumingIt331/scripts01/master/quantumultX/youth.js"
+		},
+	]
+}
