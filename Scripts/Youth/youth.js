@@ -576,7 +576,7 @@ function Articlered() {
 function readTime() {
     return new Promise((resolve, reject) => {
         const url = {
-            url: `https://ios.baertt.com/v5/user/app_stay.json`,
+            url: `https://ios.baertt.com/v5/user/stay.json`,
             headers: {
                 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
