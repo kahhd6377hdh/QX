@@ -74,6 +74,7 @@ const BOX = 2;//设置为0 日常任务，设置为1 单开宝箱，设置为2 �
 
 const jsname = '企鹅读书'
 const $ = Env(jsname)
+$.idx = ($.idx = ($.getval("qeSuffix") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const COOKIE = $.isNode() ? require("./qqreadCOOKIE") : "";
 const notify = $.isNode() ? require("./sendNotify") : "";
 const notifyttt = 1// 0为关闭外部推送，1为12 23 点外部推送
