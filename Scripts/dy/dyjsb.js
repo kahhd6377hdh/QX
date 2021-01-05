@@ -41,6 +41,7 @@ dyjsbstep = type=http-request,pattern=^https://(aweme-\w+|aweme).snssdk.com/luck
 */
 const jsname='抖音极速版'
 const $ = Env(jsname)
+$.idx = ($.idx = ($.getval("qeSuffix") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const notify = $.isNode() ?require('./sendNotify') : '';
 const signheaderArr = [],signcookieArr=[]
 const stepheaderArr = [],stepkeyArr=[]
