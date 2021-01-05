@@ -218,33 +218,33 @@ if (!signheaderArr[0]) {
 function GetCookie() {
  if($request&&$request.url.indexOf("sign_in")>=0) {
   const signheader = $request.url.split(`?`)[1]
-    if (signheader) $.setdata(signheader,'signheader')
-    $.log(`[${jsname}] 获取sign请求: 成功,signheader: ${signheader}`)
-    $.msg(`获取signheader: 成功🎉`, ``)
+    if (signheader) $.setdata(signheader,'signheader${$.idx}')
+    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,signheader: ${signheader}`)
+    $.msg(jsname + $.idx,`获取signheader: 成功🎉`, ``)
    const signcookie = $request.headers['Cookie']
-  if(signcookie)        $.setdata(signcookie,'signcookie')
-    $.log(`[${jsname}] 获取sign请求: 成功,signcookie: ${signcookie}`)
-    $.msg(`获取signcookie: 成功🎉`, ``)
+  if(signcookie)        $.setdata(signcookie,'signcookie${$.idx}')
+    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,signcookie: ${signcookie}`)
+    $.msg(jsname + $.idx,`获取signcookie: 成功🎉`, ``)
  }
  if($request&&$request.url.indexOf("step_submit")>=0) {
 	  const stepheader = $request.url.split(`?`)[1]
-	    if (stepheader) $.setdata(stepheader,'stepheader')
-	    $.log(`[${jsname}] 获取step请求: 成功,stepheader: ${stepheader}`)
-	    $.msg(`获取stepheader: 成功🎉`, ``)
+	    if (stepheader) $.setdata(stepheader,'stepheader${$.idx}')
+	    $.log(`[${jsname + $.idx}] 获取step请求: 成功,stepheader: ${stepheader}`)
+	    $.msg(jsname + $.idx,`获取stepheader: 成功🎉`, ``)
 	   const stepkey = JSON.stringify($request.headers)
-	  if(stepkey)        $.setdata(stepkey,'stepkey')
-	    $.log(`[${jsname}] 获取step请求: 成功,stepkey: ${stepkey}`)
-	    $.msg(`获取stepkey: 成功🎉`, ``)
+	  if(stepkey)        $.setdata(stepkey,'stepkey${$.idx}')
+	    $.log(`[${jsname + $.idx}] 获取step请求: 成功,stepkey: ${stepkey}`)
+	    $.msg(jsname + $.idx,`获取stepkey: 成功🎉`, ``)
 	 }
  if($request&&$request.url.indexOf("done/read")>=0) {
 	  const readheader = $request.url.split(`?`)[1]
-	    if (readheader) $.setdata(readheader,'readheader')
-	    $.log(`[${jsname}] 获取read请求: 成功,readheader: ${readheader}`)
-	    $.msg(`获取readheader: 成功🎉`, ``)
+	    if (readheader) $.setdata(readheader,'readheader${$.idx}')
+	    $.log(`[${jsname + $.idx}] 获取read请求: 成功,readheader: ${readheader}`)
+	    $.msg(jsname + $.idx,`获取readheader: 成功🎉`, ``)
 	   const readkey = JSON.stringify($request.headers)
-	  if(readkey)        $.setdata(readkey,'readkey')
-	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${readkey}`)
-	    $.msg(`获取readkey: 成功🎉`, ``)
+	  if(readkey)        $.setdata(readkey,'readkey${$.idx}')
+	    $.log(`[${jsname + $.idx}] 获取read请求: 成功,readkey: ${readkey}`)
+	    $.msg(jsname + $.idx,`获取readkey: 成功🎉`, ``)
 	 }
     }
 async function control(){
