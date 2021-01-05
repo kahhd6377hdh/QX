@@ -201,8 +201,8 @@ if (!signheaderArr[0]) {
       stepkey = stepkeyArr[i];
       readheader = readheaderArr[i];
       readkey = readkeyArr[i];
-      $.index = i + 1;
-      console.log(`\n开始【抖音极速版${$.index}】`)
+      $.idx = i + 1;
+      console.log(`\n开始【抖音极速版${$.idx}】`)
       //await invite()
       await sign_in()
       //await step_submit()
