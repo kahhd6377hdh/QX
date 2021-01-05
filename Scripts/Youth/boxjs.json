@@ -128,6 +128,36 @@
 				"https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
 				"https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
 			]
-		}
+		},
+		{
+    "id": "dyjsb",
+    "name": "抖音极速版",
+    "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey", "signheader2", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2", "signheader3", "signcookie3", "stepheader3", "stepkey3", "readheader3", "readkey3"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "dyjsbsetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "dyjsbcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/dyjsb.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
+  }
 	]
 }
