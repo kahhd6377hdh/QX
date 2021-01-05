@@ -3,7 +3,7 @@ github action有问题，看视频金币太少，建议使用代理软件
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
-邀请码：8208640731
+邀请码：8025524531
 我的--输入邀请码，立得一元，直接提现，谢谢
 作者：执意ZhiYi-N
 目前包含：
@@ -19,42 +19,32 @@ hostname = *.snssdk.com
 #圈x
 [rewrite local]
 https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/sign_in/detail? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
-
 https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/done/read? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
-
 https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/walk/step_submit? - script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
-
 #loon
 http-request ^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/sign_in/detail? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版sign
-
 http-request ^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/done/read? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版read
-
 http-request ^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/walk/step_submit? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版step
-
 #surge
 dyjsbsign = type=http-request,pattern=^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/sign_in/detail?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
-
 dyjsbread = type=http-request,pattern=^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/done/read?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
-
 dyjsbstep = type=http-request,pattern=^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/walk/step_submit?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
-
 */
 const jsname='抖音极速版'
 const $ = Env(jsname)
-$.idx = ($.idx = ($.getval("qeSuffix") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const notify = $.isNode() ?require('./sendNotify') : '';
 const signheaderArr = [],signcookieArr=[]
 const stepheaderArr = [],stepkeyArr=[]
 const readheaderArr = [],readkeyArr=[]
-let signheader = "";
-let signcookie = "";
+let signheader = $.getdata('signheader')
+let signcookie = $.getdata('signcookie')
 
-let stepheader = "";
-let stepkey = "";
+let stepheader = $.getdata('stepheader')
+let stepkey = $.getdata('stepkey')
 
-let readheader = "";
-let readkey = "";
-let tz = ($.getval('tz') || "1");//0关闭通知，1默认开启
+let readheader = $.getdata('readheader')
+let readkey = $.getdata('readkey')
+let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =1;//0为关闭日志，1为开启
 var hour=''
@@ -202,8 +192,8 @@ if (!signheaderArr[0]) {
       stepkey = stepkeyArr[i];
       readheader = readheaderArr[i];
       readkey = readkeyArr[i];
-      $.idx = i + 1;
-      console.log(`\n开始【抖音极速版${$.idx}】`)
+      $.index = i + 1;
+      console.log(`\n开始【抖音极速版${$.index}】`)
       //await invite()
       await sign_in()
       //await step_submit()
@@ -219,33 +209,33 @@ if (!signheaderArr[0]) {
 function GetCookie() {
  if($request&&$request.url.indexOf("sign_in")>=0) {
   const signheader = $request.url.split(`?`)[1]
-    if (signheader) $.setdata(signheader,'signheader${$.idx}')
-    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,signheader: ${signheader}`)
-    $.msg(jsname + $.idx,`获取signheader: 成功🎉`, ``)
+    if (signheader) $.setdata(signheader,'signheader')
+    $.log(`[${jsname}] 获取sign请求: 成功,signheader: ${signheader}`)
+    $.msg(`获取signheader: 成功🎉`, ``)
    const signcookie = $request.headers['Cookie']
-  if(signcookie)        $.setdata(signcookie,'signcookie${$.idx}')
-    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,signcookie: ${signcookie}`)
-    $.msg(jsname + $.idx,`获取signcookie: 成功🎉`, ``)
+  if(signcookie)        $.setdata(signcookie,'signcookie')
+    $.log(`[${jsname}] 获取sign请求: 成功,signcookie: ${signcookie}`)
+    $.msg(`获取signcookie: 成功🎉`, ``)
  }
  if($request&&$request.url.indexOf("step_submit")>=0) {
 	  const stepheader = $request.url.split(`?`)[1]
-	    if (stepheader) $.setdata(stepheader,'stepheader${$.idx}')
-	    $.log(`[${jsname + $.idx}] 获取step请求: 成功,stepheader: ${stepheader}`)
-	    $.msg(jsname + $.idx,`获取stepheader: 成功🎉`, ``)
+	    if (stepheader) $.setdata(stepheader,'stepheader')
+	    $.log(`[${jsname}] 获取step请求: 成功,stepheader: ${stepheader}`)
+	    $.msg(`获取stepheader: 成功🎉`, ``)
 	   const stepkey = JSON.stringify($request.headers)
-	  if(stepkey)        $.setdata(stepkey,'stepkey${$.idx}')
-	    $.log(`[${jsname + $.idx}] 获取step请求: 成功,stepkey: ${stepkey}`)
-	    $.msg(jsname + $.idx,`获取stepkey: 成功🎉`, ``)
+	  if(stepkey)        $.setdata(stepkey,'stepkey')
+	    $.log(`[${jsname}] 获取step请求: 成功,stepkey: ${stepkey}`)
+	    $.msg(`获取stepkey: 成功🎉`, ``)
 	 }
  if($request&&$request.url.indexOf("done/read")>=0) {
 	  const readheader = $request.url.split(`?`)[1]
-	    if (readheader) $.setdata(readheader,'readheader${$.idx}')
-	    $.log(`[${jsname + $.idx}] 获取read请求: 成功,readheader: ${readheader}`)
-	    $.msg(jsname + $.idx,`获取readheader: 成功🎉`, ``)
+	    if (readheader) $.setdata(readheader,'readheader')
+	    $.log(`[${jsname}] 获取read请求: 成功,readheader: ${readheader}`)
+	    $.msg(`获取readheader: 成功🎉`, ``)
 	   const readkey = JSON.stringify($request.headers)
-	  if(readkey)        $.setdata(readkey,'readkey${$.idx}')
-	    $.log(`[${jsname + $.idx}] 获取read请求: 成功,readkey: ${readkey}`)
-	    $.msg(jsname + $.idx,`获取readkey: 成功🎉`, ``)
+	  if(readkey)        $.setdata(readkey,'readkey')
+	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${readkey}`)
+	    $.msg(`获取readkey: 成功🎉`, ``)
 	 }
     }
 async function control(){
@@ -352,6 +342,8 @@ return new Promise((resolve, reject) => {
       }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
+          let other = '⚠️异常:'+result.err_tips+'请重新获取readkey'
+          $.msg(jsname,'',other)
       }
           resolve()
     })
